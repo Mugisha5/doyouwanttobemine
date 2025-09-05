@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1 class="header_text mt-5">Yes! I'd love to be your girlfriend!💕</h1>
+        <h1 class="header_text mt-5">Yesssssss! Okaaay Lets Do This💕</h1>
         <div class="content-container">
             <div class="video-container my-4">
                 <video id="yesVideo" controls autoplay muted loop class="img-fluid">
@@ -19,6 +19,15 @@
             <div class="gif_container my-4">
                 <img src="https://media0.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Cute animated illustration" class="img-fluid">
             </div>
+            <div class="music-section my-5" id="musicSection" style="display: none;">
+                <div class="music-card">
+                    <h3 class="music-title">💕 Our First Dance Song 💕</h3>
+                    <p class="music-subtitle">Let's relive that magical moment together...</p>
+                    <button class="btn btn-romantic" id="musicButton" onclick="openMusic()">
+                        🎵 Play Our Song 🎵
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
         <script>
@@ -28,7 +37,20 @@
                 video.play().catch(e => {
                     console.log('Autoplay prevented:', e);
                 });
+                
+                // Show music section when video ends
+                video.addEventListener('ended', function() {
+                    const musicSection = document.getElementById('musicSection');
+                    musicSection.style.display = 'block';
+                    musicSection.style.animation = 'fadeInUp 1s ease-out';
+                });
             };
+            
+            // Function to open YouTube video at 30 seconds
+            function openMusic() {
+                const youtubeUrl = 'https://www.youtube.com/watch?v=8s9AZFUWKo0&t=30s';
+                window.open(youtubeUrl, '_blank');
+            }
         </script>
     </body> 
 </html>

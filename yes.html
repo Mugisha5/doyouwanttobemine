@@ -23,19 +23,9 @@
                 <div class="music-card">
                     <h3 class="music-title">💕 Our First Dance Song 💕</h3>
                     <p class="music-subtitle">Let's relive that magical moment together...</p>
-                    <div class="youtube-container">
-                        <iframe 
-                            id="youtubePlayer"
-                            width="100%" 
-                            height="315" 
-                            src="https://www.youtube.com/embed/8s9AZFUWKo0?start=30&autoplay=1&mute=0&controls=1&rel=0&modestbranding=1" 
-                            title="Donde Estara - Antony Santos (Audio Bachata)" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+                    <button class="btn btn-romantic" id="musicButton" onclick="openMusic()">
+                        🎵 Play Our Song 🎵
+                    </button>
                 </div>
             </div>
         </div>
@@ -67,6 +57,11 @@
                 }, 10000); // 10 seconds fallback
             };
             
+            // Function to open YouTube video at 30 seconds
+            function openMusic() {
+                const youtubeUrl = 'https://www.youtube.com/watch?v=8s9AZFUWKo0&t=30s';
+                window.open(youtubeUrl, '_blank');
+            }
         </script>
     </body> 
 </html>

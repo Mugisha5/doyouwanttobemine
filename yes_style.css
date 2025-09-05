@@ -1,0 +1,151 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #E6E6FA;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header_text {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(28px, 6vw, 50px);
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.gif_container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+
+
+.header-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.media-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.gif_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: rotate(270deg);
+}
+
+.instagram-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.instagram-handle {
+    text-decoration: underline; /* Underlines the text */
+    margin-top: 8px; /* Adds a little space between the icon and the text */
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        min-height: 100vh;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .media-container {
+        gap: 15px;
+    }
+    
+    .gif_container, .video-container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .header_text {
+        font-size: clamp(24px, 7vw, 40px);
+        margin-bottom: 15px;
+    }
+    
+    .gif_container img {
+        max-height: 50vh;
+    }
+    
+    .video_container video {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .header_text {
+        font-size: clamp(20px, 8vw, 32px);
+        margin-bottom: 10px;
+    }
+    
+    .gif_container img {
+        max-height: 40vh;
+    }
+}
+
+@media (max-width: 320px) {
+    .header_text {
+        font-size: 18px;
+    }
+    
+    .gif_container img {
+        max-height: 35vh;
+    }
+}

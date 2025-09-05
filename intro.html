@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./intro_style.css">
+    <title>Welcome - A Special Message</title>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="header_text mt-5">Welcome! 💕</h1>
+        <div class="video-container my-4">
+            <video id="introVideo" controls autoplay muted>
+                <source src="Intro Video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="message-container">
+            <p class="message-text">I have something special to ask you... 🥺</p>
+            <div class="continue-button-container">
+                <button class="btn btn-primary" id="continueButton" onclick="goToMain()" disabled>Continue to the question 💕</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goToMain() {
+            window.location.href = "index.html";
+        }
+        
+        // Enable continue button after video ends
+        window.onload = function() {
+            const video = document.getElementById('introVideo');
+            const continueButton = document.getElementById('continueButton');
+            
+            // Auto-play video when page loads
+            video.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+                // If autoplay is prevented, enable the button immediately
+                continueButton.disabled = false;
+                continueButton.innerHTML = 'Click to play video and continue 💕';
+            });
+            
+            // Enable button when video ends
+            video.addEventListener('ended', function() {
+                continueButton.disabled = false;
+                continueButton.innerHTML = 'Continue to the question 💕';
+                continueButton.style.animation = 'pulse 2s infinite';
+            });
+            
+            // Enable button if video is paused/stopped by user
+            video.addEventListener('pause', function() {
+                if (video.currentTime > 0) {
+                    continueButton.disabled = false;
+                    continueButton.innerHTML = 'Continue to the question 💕';
+                }
+            });
+        };
+    </script>
+</body>
+</html>

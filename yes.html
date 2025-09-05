@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./yes_style.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="header_text mt-5">Yes! I'd love to be your girlfriend!💕</h1>
+        <div class="content-container">
+            <div class="video-container my-4">
+                <video id="yesVideo" controls autoplay muted loop class="img-fluid">
+                    <source src="yes.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="gif_container my-4">
+                <img src="https://media0.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Cute animated illustration" class="img-fluid">
+            </div>
+        </div>
+    </div>
+        <script>
+            // Auto-play video when page loads
+            window.onload = function() {
+                const video = document.getElementById('yesVideo');
+                video.play().catch(e => {
+                    console.log('Autoplay prevented:', e);
+                });
+            };
+        </script>
+    </body> 
+</html>

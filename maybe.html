@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./maybe_style.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="header_text mt-5">Hmm... Maybe? 🤔</h1>
+        <div class="content-container">
+            <div class="message-box">
+                <h2 class="ultimatum-text">⏰ ULTIMATUM TIME! ⏰</h2>
+                <p class="message">Lianna, I need a definitive answer! You have exactly <strong>48 hours</strong> to decide! 🕐</p>
+                <p class="message">Think about it carefully... but not too long! 😉</p>
+                <div class="countdown-container">
+                    <div class="countdown" id="countdown">
+                        <div class="time-unit">
+                            <span id="hours">48</span>
+                            <label>Hours</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="minutes">00</span>
+                            <label>Minutes</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="seconds">00</span>
+                            <label>Seconds</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-success" onclick="yesPage()">Yes! I've decided! 💕</button>
+                    <button class="btn btn-danger" onclick="noPage()">No, sorry 😔</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function yesPage() {
+            window.location.href = "yes.html";
+        }
+        
+        function noPage() {
+            window.location.href = "no.html";
+        }
+        
+        // Countdown timer
+        function startCountdown() {
+            let totalSeconds = 48 * 60 * 60; // 48 hours in seconds
+            
+            const timer = setInterval(() => {
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (totalSeconds <= 0) {
+                    clearInterval(timer);
+                    document.querySelector('.ultimatum-text').textContent = '⏰ TIME\'S UP! ⏰';
+                    document.querySelector('.message').textContent = 'You took too long! The offer is now expired! 😤';
+                }
+                
+                totalSeconds--;
+            }, 1000);
+        }
+        
+        // Start countdown when page loads
+        window.onload = startCountdown;
+    </script>
+</body>
+</html>

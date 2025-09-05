@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olas Gala</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./yes_style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Left Side Content -->
+            <div class="col-12 col-md-6 left-side">
+                <h1 class="header_text">Yeeeyyyy!!</h1>
+                <div class="gif_container">
+                    <img src="https://media0.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Cute animated illustration">
+                </div>
+            </div>
+            <!-- Right Side Content -->
+            <div class="col-12 col-md-6 right-side">
+                <h1 class="header_text">Ticket Prices & Deadlines</h1>
+                <br>
+                <p><strong>Members & Early Birds: $90🦋</strong> (Early Bird tickets will be available until March 9th MIDNIGHT)</p>
+                <p><strong>Regular: $95🦋</strong> (Regular tickets will be available until March 10th MIDNIGHT)</p>
+                <p><strong>Late Tickets: $100🦋</strong> (Late tickets will be available until March 27th MIDNIGHT)</p>
+                <br>
+                <p><strong>**paying cash avoids paying additional taxes & fees‼️**</strong></p>
+                <p>👑🌟 PS: Our event is open to anyone in York & Outside of our community & Tickets are available in our bio!✨👑</p>
+                <br>
+                <p>Got questions or need further details? Don't hesitate to reach out to us on <b>Instagram</b> for the quickest response!</p>
+                <div class="instagram-contact">
+                    <a href="https://www.instagram.com/olas.yu/" target="_blank">
+                        <img src="instagram-ico.png" alt="Instagram" style="width:40px; height:40px;">
+                    </a>
+                    <a href="https://www.instagram.com/olas.yu/" target="_blank" class="instagram-handle">olas.yu</a>
+                </div>
+                </br>
+            </div>
+        </div>
+    </div>
+</body> 
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="header_text mt-5">Lianna, will you be my girlfriend?🥺💕</h1>
+        <div class="gif_container my-4">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration" class="img-fluid">
+        </div>
+        <div class="hover-counter">
+            <span id="hoverCount">Hovers: 0/10</span>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-primary" id="yesButton" onclick="nextPage()">Yes 💕</button>
+            <button class="btn btn-warning" id="maybeButton" onclick="maybePage()">Maybe 🤔</button>
+            <button class="btn btn-secondary" id="noButton" onmouseover="handleNoHover()" onclick="handleNoClick()">No</button>
+        </div>
+    </div>
+    <script>
+        let hoverCount = 0;
+        const maxHovers = 10;
+        
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+        
+        function maybePage() {
+            window.location.href = "maybe.html";
+        }
+        
+        function handleNoHover() {
+            hoverCount++;
+            console.log(`Hover count: ${hoverCount}`);
+            
+            // Update the counter display
+            document.getElementById('hoverCount').textContent = `Hovers: ${hoverCount}/${maxHovers}`;
+            
+            if (hoverCount < maxHovers) {
+                moveButton();
+            } else {
+                // After 10 hovers, make the button clickable
+                document.getElementById('noButton').style.position = 'static';
+                document.getElementById('noButton').style.left = 'auto';
+                document.getElementById('noButton').style.top = 'auto';
+                document.getElementById('noButton').style.transform = 'none';
+                document.getElementById('noButton').innerHTML = 'No (Clickable now!)';
+                document.getElementById('noButton').style.backgroundColor = '#dc3545';
+                document.getElementById('noButton').style.color = 'white';
+                document.getElementById('hoverCount').textContent = 'No button is now clickable! 🎯';
+            }
+        }
+        
+        function handleNoClick() {
+            if (hoverCount >= maxHovers) {
+                window.location.href = "no.html";
+            } else {
+                moveButton();
+            }
+        }
+        
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const buttonWidth = button.offsetWidth || 100; // fallback width
+            const buttonHeight = button.offsetHeight || 50; // fallback height
+            
+            // Get the container bounds to keep button within screen
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            
+            // Add some padding from edges for better UX
+            const padding = 20;
+            const maxX = Math.max(0, containerRect.width - buttonWidth - padding);
+            const maxY = Math.max(0, containerRect.height - buttonHeight - padding);
+            
+            // Generate random position within bounds
+            const x = Math.max(padding, Math.min(maxX, Math.random() * maxX));
+            const y = Math.max(padding, Math.min(maxY, Math.random() * maxY));
+            
+            // Set position relative to container
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+            button.style.transform = 'none';
+            button.style.zIndex = '10'; // Ensure it stays on top
+        }
+    </script>
+</body>
+</html>

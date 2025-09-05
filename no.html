@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./no_style.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="header_text mt-5">Oh... 😔</h1>
+        <div class="content-container">
+            <div class="video-container">
+                <video id="noVideo" controls autoplay muted loop>
+                    <source src="no.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="message-container">
+                <h2 class="message-text">That's okay... I understand 😢</h2>
+                <p class="sub-message">Maybe we can still be friends? 🤝</p>
+                <div class="buttons">
+                    <button class="btn btn-primary" onclick="backToMain()">Try Again? 💕</button>
+                    <button class="btn btn-secondary" onclick="maybePage()">Maybe Later? 🤔</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function backToMain() {
+            window.location.href = "index.html";
+        }
+        
+        function maybePage() {
+            window.location.href = "maybe.html";
+        }
+        
+        // Auto-play video when page loads
+        window.onload = function() {
+            const video = document.getElementById('noVideo');
+            video.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+            });
+        };
+    </script>
+</body>
+</html>
